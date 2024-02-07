@@ -90,7 +90,7 @@ export const processOrder = asyncError(async (req, res, next) => {
     if (order.orderStatus === "Preparing") order.orderStatus = "Shipped";
     else if (order.orderStatus === "Shipped") {
         order.orderStatus = "Delivered";
-        order.deliverdAt = new Date(Date.now());
+        order.deliveredAt = new Date(Date.now());
     }
     else return next(new ErrorHandler("Order Already Delivered", 404));
 

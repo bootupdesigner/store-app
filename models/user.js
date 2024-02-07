@@ -28,6 +28,10 @@ const schema = new mongoose.Schema({
         type: String,
         required: [true, "Please Enter City "],
     },
+    state: {
+        type: String,
+        required: [true, "Please Enter State "],
+    },
     country: {
         type: String,
         required: [true, "Please Enter Country"],
