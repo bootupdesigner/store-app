@@ -23,7 +23,7 @@ export const login = asyncError(async (req, res, next) => {
 });
 
 export const signup = asyncError(async (req, res, next) => {
-    const { name, email, password, address, city, country, zipCode } = req.body;
+    const { name, email, password, address, city, country,state, zipCode } = req.body;
 
     let user = await User.findOne({ email })
 
@@ -50,6 +50,7 @@ export const signup = asyncError(async (req, res, next) => {
         address,
         city,
         country,
+        state,
         zipCode,
         avatar,
     });
@@ -85,13 +86,14 @@ export const getMyProfile = asyncError(async (req, res, next) => {
 export const updateProfile = asyncError(async (req, res, next) => {
     const user = await User.findById(req.user._id);
 
-    const { name, email, address, city, country, zipCode } = req.body;
+    const { name, email, address, city, country, state,zipCode } = req.body;
 
     if (name) user.name = name;
     if (email) user.email = email;
     if (address) user.address = address;
     if (city) user.city = city;
     if (country) user.country = country;
+    if (state) user.state = state;
     if (zipCode) user.zipCode = zipCode;
 
     await user.save();

@@ -10,11 +10,11 @@ const schema = new mongoose.Schema({
             type: String,
             required: true,
         },
-        state: {
+        country: {
             type: String,
             required: true,
         },
-        country: {
+        state: {
             type: String,
             required: true,
         },
